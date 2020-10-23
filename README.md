@@ -9,6 +9,7 @@ Developed a simple framework which should support to develop automation test scr
 3. Cucumber
 4. JUnit
 5. Maven
+6. Selenium Webdriver (chromedriver)
 
 
 # Steps to start :
@@ -17,5 +18,7 @@ Developed a simple framework which should support to develop automation test scr
 2. Open the Command prompt and navigate to project location
 3. Execute the following Maven command's
     - mvn clean :- To clean the maven repo
-    - mvn install :- To install the maven requirments 
+    - mvn install :- To install the maven requirements 
     - mvn test :- To execute the test scenarios
+4. Download chromedriver in your local
+5. Add the location of your driver in PATH under the System variables
