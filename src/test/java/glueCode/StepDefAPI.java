@@ -6,6 +6,8 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import utilities.Utils;
 
+import java.util.List;
+
 import static org.hamcrest.Matchers.hasItem;
 import static org.junit.Assert.assertEquals;
 
@@ -28,10 +30,12 @@ public class StepDefAPI extends Utils {
 
     }
 
-    @Then("^response should includes \"([^\"]*)\"$")
-    public void response_should_includes(String arg1) {
-        response.then().body("Description", hasItem(arg1));
+    @Then("^the response should include below value$")
+    public void the_response_should_include_below_value(DataTable value) {
+        List <List<String>> data = value.raw();
+        response.then().body("Description", hasItem(data.get(0).get(0)));
     }
+
 
     @Given("^To initiate Rest service to get used car list$")
     public void to_initiate_Rest_service_to_get_used_car_list() {
@@ -41,10 +45,13 @@ public class StepDefAPI extends Utils {
         //System.out.println("************The Response value as --" + response.prettyPrint());
     }
 
-    @Then("^The \"([^\"]*)\" is returned in the response with value \"([^\"]*)\"$")
-    public void the_is_returned_in_the_response_with_value(String arg1, String arg2)  {
-    response.then().body(arg1, hasItem(arg2));
 
+    @Then("^the response should include below attributes with value$")
+    public void the_response_should_include_below_attributes_with_value(DataTable value) {
+        List <List<String>> data = value.raw();
+        for (int i=1;i <= data.size(); i++) {
+            response.then().body(data.get(i).get(0), hasItem(data.get(i).get(1)));
+        }
     }
 
 }

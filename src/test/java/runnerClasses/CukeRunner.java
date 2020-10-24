@@ -13,8 +13,6 @@ import cucumber.api.junit.Cucumber;
     },
     glue = {
         "glueCode"
-    },
-        dryRun = false
-
+    }
 )
 public class CukeRunner {}

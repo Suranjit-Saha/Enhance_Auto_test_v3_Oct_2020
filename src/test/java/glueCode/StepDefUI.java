@@ -38,10 +38,12 @@ public class StepDefUI {
     public void the_Kilometres_is_displayed() {
         pageObject.testKilometres();
     }
+
     @Then("^The Body is displayed$")
     public void the_Body_is_displayed() {
         pageObject.testBody();
     }
+
     @Then("^The Seats are displayed$")
     public void the_Seats_are_displayed() {
         pageObject.testSeats();
