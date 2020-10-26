@@ -1,10 +1,10 @@
-package glueCode;
+package com.glue.code.pkg;
 
 import com.jayway.restassured.response.Response;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import utilities.Utils;
+import com.utilities.pkg.Utils;
 
 import java.util.List;
 

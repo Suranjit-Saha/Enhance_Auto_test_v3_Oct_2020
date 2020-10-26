@@ -1,4 +1,4 @@
-package utilities;
+package com.utilities.pkg;
 
 import com.jayway.restassured.RestAssured;
 import com.jayway.restassured.response.Response;
