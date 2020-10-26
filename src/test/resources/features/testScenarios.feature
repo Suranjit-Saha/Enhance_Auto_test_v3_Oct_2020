@@ -3,15 +3,15 @@
 Feature: To verify UI and API automation with Selenium and Rest Assured
 Scenario: To verify that St John is included in the charities list - GET Method
 Given To initiate Rest service to get charities list
-Then Response status code should be "200"
-And the response should include below value
+When Response status code should be "200"
+Then the response should include below value
 | St John |
 
 
   Scenario: To verify used Car listing and confirm that the required details are shown for that car - GET Method
 Given To initiate Rest service to get used car list
-Then Response status code should be "200"
-And the response should include below attributes with value
+When Response status code should be "200"
+Then the response should include below attributes with value
     | Attribute    | Value                      |
     | NumberPlate  | EDD369                     |
     | Kilometres   | 163,794km                  |

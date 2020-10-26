@@ -1,10 +1,9 @@
 package com.utilities.pkg;
 
-import com.jayway.restassured.RestAssured;
-import com.jayway.restassured.response.Response;
 
-import static com.jayway.restassured.RestAssured.get;
-import static com.jayway.restassured.RestAssured.given;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import static io.restassured.RestAssured.*;
 
 public class Utils {
     //Global Setup Variables
