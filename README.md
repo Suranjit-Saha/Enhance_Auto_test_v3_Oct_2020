@@ -21,4 +21,5 @@ Developed a simple framework which should support to develop automation test scr
     - mvn install :- To install the maven requirements 
     - mvn test :- To execute the test scenarios
 4. Download chromedriver in your local
-5. Add the location of your driver in PATH under the System variables
+5. Add the location of your driver in general.properties file
+6. This code has been tested in chrome browser
