@@ -9,6 +9,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 
+import java.io.IOException;
 import java.util.List;
 
 import static org.hamcrest.Matchers.hasItem;
@@ -43,7 +44,7 @@ public class StepDefAPI extends Utils {
 
 
     @Given("^To initiate Rest service to get used car list$")
-    public void to_initiate_Rest_service_to_get_used_car_list() {
+    public void to_initiate_Rest_service_to_get_used_car_list() throws IOException {
         setBaseURI();
         cratePath("/v1/Search/Motors/Used.json");
         response = getAuthResponse();

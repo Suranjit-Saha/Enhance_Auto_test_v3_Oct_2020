@@ -1,5 +1,6 @@
 package com.page.object.pkg;
 
+import com.utilities.pkg.ExplicitWait;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,32 +10,35 @@ import org.openqa.selenium.support.PageFactory;
 
 public class PageObject {
     private WebDriver driver;
+    private ExplicitWait expWait;
 
     public PageObject(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        expWait = new ExplicitWait(driver);
     }
 
     @FindBy(id = "SearchTabs1_MotorsLink")
     private WebElement motorTab;
 
-    @FindBy(linkText = "Cars for sale")
-    private WebElement carForSale;
+    /* @FindBy(linkText = "Cars for sale")
+    private WebElement carForSale; */
 
-    @FindBy(xpath = "//div[@data-listing-id='2149202005']")
-    private WebElement usedCar;
+    /* @FindBy(xpath = "//div[@data-listing-id='2149202005']")
+    private WebElement usedCar; */
 
     public void clickMotorTab () {
         motorTab.click();
     }
 
-    public void clickCarForSale () throws InterruptedException {
-        Thread.sleep(1000);
+    public void clickCarForSale () {
+        WebElement carForSale = expWait.findActiveElement(By.linkText("Cars for sale"),3);
         carForSale.click();
     }
 
     public void clickUsedCar () throws InterruptedException {
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
+        WebElement usedCar = expWait.findActiveElement(By.xpath("//div[@data-listing-id='2149202005']"),5);
         usedCar.click();
     }
 

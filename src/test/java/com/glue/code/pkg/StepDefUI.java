@@ -2,22 +2,32 @@ package com.glue.code.pkg;
 
 import com.page.object.pkg.PageObject;
 
+import com.utilities.pkg.ReadProperties;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class StepDefUI {
-    private static String url = "https://www.tmsandbox.co.nz/" ;
-    private static WebDriver driver = new ChromeDriver();
-    private PageObject pageObject = new PageObject(driver);
+    private static String url;
+    private static WebDriver driver;
+    private static PageObject pageObject;
+    private static ReadProperties readProp = new ReadProperties();
 
+public static void initialisation() throws IOException {
+    System.setProperty(readProp.readProps("chromeDriver"), readProp.readProps("driverLocation"));
+    driver = new ChromeDriver();
+    pageObject = new PageObject(driver);
+    url = readProp.readProps("url");
+}
 
     @Given("^User is on Used Car listing Page$")
-    public void user_is_on_Used_Car_listing_Page()  {
+    public void user_is_on_Used_Car_listing_Page() throws IOException {
+        initialisation();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         driver.get(url);
