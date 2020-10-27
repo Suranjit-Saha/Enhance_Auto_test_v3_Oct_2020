@@ -33,7 +33,7 @@ public class Utils{
     public static Response getAuthResponse() {
             return given().
                     auth().oauth("23F36178AA3183A14872A7DD4D9B7124","DA39D286F5A609935C992ECB017B6687",
-                    "PLAINTEXT","B4E499C6416932A8AF691381DE3D8456&").
+                    "PLAINTEXT","B4E499C6416932A8AF691381DE3D8456").
                     get(path);
     }
 
