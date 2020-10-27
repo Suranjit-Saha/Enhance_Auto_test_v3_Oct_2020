@@ -1,7 +1,6 @@
 package com.glue.code.pkg;
 
 import com.page.object.pkg.PageObject;
-
 import com.utilities.pkg.ReadProperties;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
@@ -13,8 +12,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
-import static org.hamcrest.Matchers.hasItem;
 
 public class StepDefUI {
     private static String url;
@@ -50,8 +47,8 @@ public static void initialisation() throws IOException {
         List <List<String>> data = value.asLists();
         for (int i=0;i < data.size(); i++) {
            pageObject.testAttributes(data.get(i).get(0));
-            System.out.println("Attribute " + data.get(i).get(0) + " has been checked");
         }
+        driver.quit();
     }
 
 }
