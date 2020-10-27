@@ -3,6 +3,7 @@ package com.glue.code.pkg;
 import com.page.object.pkg.PageObject;
 
 import com.utilities.pkg.ReadProperties;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,7 +11,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import static org.hamcrest.Matchers.hasItem;
 
 public class StepDefUI {
     private static String url;
@@ -40,25 +44,14 @@ public static void initialisation() throws IOException {
         pageObject.clickUsedCar();
     }
 
-    @Then("^The Number plate is displayed$")
-    public void the_Number_plate_is_displayed() throws InterruptedException {
-        pageObject.testNumberPlate();
-    }
+    @Then("the UI should display the below attributes")
+    public void the_ui_should_display_the_below_attributes(DataTable value) {
 
-    @Then("^The Kilometres is displayed$")
-    public void the_Kilometres_is_displayed() {
-        pageObject.testKilometres();
-    }
-
-    @Then("^The Body is displayed$")
-    public void the_Body_is_displayed() {
-        pageObject.testBody();
-    }
-
-    @Then("^The Seats are displayed$")
-    public void the_Seats_are_displayed() {
-        pageObject.testSeats();
-        driver.quit();
+        List <List<String>> data = value.asLists();
+        for (int i=0;i < data.size(); i++) {
+           pageObject.testAttributes(data.get(i).get(0));
+            System.out.println("Attribute " + data.get(i).get(0) + " has been checked");
+        }
     }
 
 }

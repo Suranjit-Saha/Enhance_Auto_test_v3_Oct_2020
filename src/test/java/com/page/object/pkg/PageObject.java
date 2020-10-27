@@ -18,49 +18,24 @@ public class PageObject {
         expWait = new ExplicitWait(driver);
     }
 
-    @FindBy(id = "SearchTabs1_MotorsLink")
-    private WebElement motorTab;
-
-    /* @FindBy(linkText = "Cars for sale")
-    private WebElement carForSale; */
-
-    /* @FindBy(xpath = "//div[@data-listing-id='2149202005']")
-    private WebElement usedCar; */
-
     public void clickMotorTab () {
+        WebElement motorTab = expWait.findActiveElement(By.id("SearchTabs1_MotorsLink"),5);
         motorTab.click();
     }
 
     public void clickCarForSale () {
-        WebElement carForSale = expWait.findActiveElement(By.linkText("Cars for sale"),3);
+        WebElement carForSale = expWait.findActiveElement(By.linkText("Cars for sale"),5);
         carForSale.click();
     }
 
     public void clickUsedCar () throws InterruptedException {
-        //Thread.sleep(1000);
         WebElement usedCar = expWait.findActiveElement(By.xpath("//div[@data-listing-id='2149202005']"),5);
         usedCar.click();
     }
 
-    public void testNumberPlate() throws InterruptedException {
-        Thread.sleep(1000);
-        WebElement numberPlate = driver.findElement(By.xpath("//div[@class='key-details-attribute-label']//label[text()='Number plate']"));
-        Assert.assertEquals("Test that the number palate is displayed",numberPlate.isDisplayed(),true);
-    }
-
-    public void testKilometres() {
-        WebElement numberPlate = driver.findElement(By.xpath("//div[@class='key-details-attribute-label']//label[text()='Kilometres']"));
-        Assert.assertEquals("Test that the kilometers are displayed",numberPlate.isDisplayed(),true);
-    }
-
-    public void testBody()  {
-        WebElement numberPlate = driver.findElement(By.xpath("//div[@class='key-details-attribute-label']//label[text()='Body']"));
-        Assert.assertEquals("Test that the body is displayed",numberPlate.isDisplayed(),true);
-    }
-
-    public void testSeats ()  {
-        WebElement numberPlate = driver.findElement(By.xpath("//div[@class='key-details-attribute-label']//label[text()='Seats']"));
-        Assert.assertEquals("Test that the seats are displayed",numberPlate.isDisplayed(),true);
+    public void testAttributes (String attribute) {
+        WebElement attElement = expWait.findActiveElement(By.xpath("//div[@class='key-details-attribute-label']//label[text()='" + attribute + "']"),5);
+        Assert.assertEquals("Test that the attribute is displayed",attElement.isDisplayed(),true);
     }
 
 }

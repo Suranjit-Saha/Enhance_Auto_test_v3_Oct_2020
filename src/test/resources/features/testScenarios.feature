@@ -4,10 +4,11 @@ Feature: To verify UI and API of used car list and charities with Selenium and R
   Scenario: Number plate Kilometres Body and Seats are displayed for the posted used cars in the UI
     Given User is on Used Car listing Page
     When User queries an existing Used Car from the listing
-    Then The Number plate is displayed
-    And The Kilometres is displayed
-    And The Body is displayed
-    And The Seats are displayed
+    Then the UI should display the below attributes
+      | Number plate |
+      | Kilometres   |
+      | Body         |
+      | Seats        |
 
 Scenario: To verify that St John is included in the charities list - GET Method
 Given To initiate Rest service to get charities list
