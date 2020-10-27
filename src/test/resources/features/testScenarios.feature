@@ -1,6 +1,6 @@
-#This feature file contains few test scenarios to verify UI and API
+#This feature file contains few test scenarios to verify UI and API of Trademe sandbox
 #Author: Suranjit Saha
-Feature: To verify UI and API of used car list and charities with Selenium and Rest Assured
+Feature: To verify UI and API of used car list and charities in Trademe Sandbox with Selenium and Rest Assured
   Scenario: Number plate Kilometres Body and Seats are displayed for the posted used cars in the UI
     Given User is on Used Car listing Page
     When User queries an existing Used Car from the listing
