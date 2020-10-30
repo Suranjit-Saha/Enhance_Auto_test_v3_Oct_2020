@@ -26,7 +26,7 @@ public class PageObject {
     }
 
     public void clickUsedCar () throws InterruptedException {
-        WebElement usedCar = expWait.findActiveElement(By.xpath("//div[@data-listing-id='2149202005']"),5);
+        WebElement usedCar = expWait.findActiveElement(By.xpath("//div[@data-listing-id='2149204014']"),5);
         usedCar.click();
     }
 
